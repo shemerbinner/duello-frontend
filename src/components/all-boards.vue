@@ -57,7 +57,12 @@
                 <div class="title">{{ board.title }}</div>
                 <div class="container">
                   <span>{{ board.subName }}</span>
-                  <icon-base iconName="starS" :class="['board-title-icon', 'full-star']" />
+                  <icon-base
+                    v-if="!board.isStarred"
+                    iconName="starS"
+                    :class="['board-title-icon', 'full-star']"
+                    @click.prevent="toggleFavorites(board)"
+                  />
                 </div>
               </div>
             </a>
@@ -66,8 +71,7 @@
           <li class="last">
             <div class="board-title create">
               <p>Create new board</p>
-              <p>
-              </p>
+              <p></p>
               <div class="li-icon">
                 <icon-base iconName="help" />
               </div>

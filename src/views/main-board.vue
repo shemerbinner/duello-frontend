@@ -5,9 +5,9 @@
 
     <section class="groups-container-wrapper">
       <Container
-        orientation="horizontal"
         @drop="onDrop"
         :get-child-payload="getChildPayload"
+        orientation="horizontal"
         drag-class="card-ghost"
         drop-class="card-ghost-drop"
         :drop-placeholder="{ className: 'drop-preview' }"
@@ -105,6 +105,8 @@ export default {
       this.board.groups.splice(idx, 1, group);
       await this.$store.dispatch({ type: 'drag', board: JSON.parse(JSON.stringify(this.board)) });
       this.board = JSON.parse(JSON.stringify(this.$store.getters.board));
+      this.draggingCard = null;
+      console.log(this.draggingCard);
     },
     setDraggedTask(task) {
       this.draggingCard = task;
@@ -116,10 +118,8 @@ export default {
       board.groups = res;
       this.board = await this.$store.dispatch({ type: 'drag', board });
       this.board = this.$store.getters.board;
-      this.draggingCard = null;
     },
     getChildPayload(index) {
-      // if (!this.board.groups) return;
       return this.board.groups[index];
     },
     closeQuickEdit() {

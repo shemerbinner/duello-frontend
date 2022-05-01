@@ -1,8 +1,5 @@
 <template>
   <section class="task-preview" v-if="task">
-    <!-- <div v-if="isCover" class="task-prev-cover" :style="coverStyle">
-      <img class="cover-img" v-if="task.style.cover.type === 'img'" :src="task.style.cover.imgUrl" />
-    </div>-->
     <div v-if="!isCoverBcg" class="task-labels">
       <div
         class="task-label"
@@ -153,12 +150,10 @@ export default {
       return `${done.length}/${length}`;
     },
     isChecklistDone() {
-      // if (this.task.checklist[0].todos.length) {
       const done = this.task.checklist[0].todos.filter((todo) => todo.isDone);
       if (done.length === this.task.checklist[0].todos.length) return true;
 
       return '';
-      // }
     },
     isDueCompleted() {
       return this.isDueComplete ? 'is-due-complete' : 'is-due-future';

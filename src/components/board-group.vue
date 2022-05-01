@@ -93,18 +93,15 @@
         </button>
       </div>
     </div>
+
     <div @blur="openEditModal" v-if="isEditModal" class="group-edit-modal">
       <div class="modal-header">
-        <h1>List actions</h1>
-        <label @click="openEditModal">
-          <icon-base iconName="x"></icon-base>
-        </label>
+        <span>List actions</span>
+        <icon-base iconName="xs" @click="openEditModal" />
       </div>
-      <hr />
+
       <div class="modal-content">
-        <div>
-          <p @click="createTask(group.id)">Add card</p>
-        </div>
+        <p @click="createTask(group.id)">Add card</p>
         <p @click="removeGroup(group.id)">Delete this list</p>
       </div>
     </div>
