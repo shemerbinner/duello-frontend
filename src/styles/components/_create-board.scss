@@ -1,0 +1,208 @@
+.create-board {
+  width: 300px;
+  position: absolute;
+  right: 28px;
+  z-index: 1;
+  @include modalBc;
+
+  header {
+    @include modalHeader;
+  }
+
+  .board-prev {
+    position: relative;
+    margin: auto;
+    width: 200px;
+    height: 120px;
+    .icon-base {
+      position: absolute;
+      transform: translate(-50%, 0);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .color-container {
+    display: grid;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .color-boxes {
+      width: 40px;
+      height: 32px;
+      border-radius: 3px;
+      padding: 2px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+        & .board-title-fade {
+          display: block;
+        }
+      }
+    }
+    .more-btn {
+      border-radius: 3px;
+      width: 40px;
+      height: 32px;
+      border: none;
+      background-color: $coverBtnClr;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+      .icon-base svg {
+        margin-top: 2px;
+        width: 16px;
+
+        color: $taskD1;
+      }
+    }
+  }
+  .img-container {
+    display: grid;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 8px;
+    .img-boxes {
+      position: relative;
+      width: 64px;
+      height: 40px;
+      &:hover {
+        cursor: pointer;
+        & .board-title-fade {
+          display: block;
+        }
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 3px;
+        object-fit: cover;
+      }
+    }
+  }
+  p {
+    margin-top: 15px;
+    color: $boardAddClr;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-bottom: 5px;
+    span {
+      color: $clr4;
+    }
+  }
+  .board-name {
+    color: $boardAddClr;
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    height: 36px;
+    border: $coverEmptyClr 3px solid;
+    border-radius: 3px;
+    font-size: rem(14px);
+    font-weight: 400;
+    &.no-title {
+      border: $clr4 3px solid;
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+      border: $labe5 3px solid;
+    }
+  }
+  .add-btn {
+    margin-top: 22px;
+    background-color: $labe5;
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+    font-size: rem(14px);
+    &:hover {
+      background-color: $clr5;
+      cursor: pointer;
+    }
+    &:disabled {
+      background-color: $coverBtnClr;
+      color: $boardAddClr;
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+  h3 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 3px;
+  }
+}
+.costumize-modal {
+  width: 304px;
+  position: fixed;
+  left: 290px;
+  z-index: 1;
+  top: 100px;
+  @include modalBc;
+  header {
+    @include modalHeader;
+  }
+  .main-content {
+    padding: none;
+    @include modalContent;
+    .see-more {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      h3,
+      h6 {
+        font-size: 14px;
+        font-weight: 600;
+        color: $menuTitleClr;
+      }
+      h6 {
+        font-weight: 400;
+        text-decoration: underline;
+        margin-right: 4px;
+      }
+    }
+    .img-container {
+      display: grid;
+      grid-template: 1fr / repeat(3, 1fr);
+      gap: 8px;
+      margin: 0 6px 0 6px;
+      img {
+        width: 85px;
+        height: 56px;
+        object-fit: cover;
+        border-radius: 3px;
+      }
+      &.search {
+        position: relative;
+        height: 500px;
+        overflow: auto;
+        overflow-x: hidden;
+      }
+    }
+    .color-container {
+      display: grid;
+      display: grid;
+      grid-template: 1fr / repeat(3, 1fr);
+      gap: 8px;
+      margin: 0 6px 0 6px;
+      .color-box {
+        width: 85px;
+        height: 56px;
+        border-radius: 3px;
+      }
+    }
+  }
+}

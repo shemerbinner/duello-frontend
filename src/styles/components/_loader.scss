@@ -1,0 +1,43 @@
+.loader {
+  margin: 0 auto;
+  width: 15rem;
+  height: 15rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .line {
+    fill: none;
+    stroke-width: 8;
+    stroke-dasharray: 40;
+  }
+
+  .animated {
+    animation: draw 0.8s ease-in-out;
+    animation-iteration-count: infinite;
+    stroke-dashoffset: 0;
+  }
+
+  .line2 {
+    animation-delay: 0.08s;
+  }
+
+  .line3 {
+    animation-delay: 0.16s;
+  }
+
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 0;
+    }
+
+    50% {
+      stroke-dashoffset: 30;
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+}

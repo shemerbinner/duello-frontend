@@ -1,0 +1,110 @@
+@keyframes slideDown {
+  to {
+    transform: translateY(0px);
+  }
+}
+.add-group {
+  flex-shrink: 0;
+  position: relative;
+  width: rem(272px);
+
+  .add-group-content {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    color: #172b4d;
+    padding: 10px 8px;
+
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+      sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    border-radius: 3px;
+    background-color: #ffffff3d;
+
+    .plus-btn {
+      color: #172b4d;
+    }
+
+    .icon-base {
+      display: inline-flex;
+    }
+  }
+
+  .input-container,
+  .add-group-btns {
+    display: flex;
+    min-height: 40px;
+    padding: 4px 8px;
+    background-color: #ebecf0;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .input-container {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .add-group-btns {
+    transform: translateY(-40px);
+    background-color: #ebecf0;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    [type='button'] {
+      background-color: #0179bf;
+      border-radius: 3px;
+      color: white;
+    }
+  }
+
+  &.open {
+    .add-group-btns {
+      animation-name: slideDown;
+    }
+  }
+
+  .add-group-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: 0.3s opacity;
+  }
+
+  &.open {
+    .add-group-form {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+}
+
+.light-bcg {
+  .add-group-content {
+    // background-color: red !important;
+    svg {
+      color: white;
+    }
+    span {
+      color: white;
+    }
+  }
+}

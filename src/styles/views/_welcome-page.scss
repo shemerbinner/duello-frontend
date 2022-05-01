@@ -1,0 +1,111 @@
+.welcome-page {
+  background-image: linear-gradient($welcomeBCG, white);
+  font-family: ubuntu-reg;
+  .welcome-btn {
+    font-size: rem(20px);
+    background-color: $welcomeBtnClr;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    height: rem(36px);
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .welcome-header {
+    height: rem(68.25px);
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .welcome-logo {
+      font-size: rem(36px);
+      font-family: ubuntu-bold;
+      color: $welcomeLogo;
+
+      img {
+        height: 25px;
+        margin-right: 0.5rem;
+      }
+    }
+    .welcome-btn-container {
+      .welcome-btn {
+        width: 80px;
+        font-size: 1.1rem;
+        font-family: ubuntu-med;
+        padding: 6px;
+      }
+      & > :first-child {
+        // margin-right: 0.5rem ;
+        color: $welcomeBtnClr;
+        background-color: transparent;
+      }
+    }
+  }
+  .welcome-body {
+    color: $welcomeTxtClr;
+    margin: em(100px) 0 0 em(99px);
+    display: flex;
+    justify-content: center;
+
+    & > * {
+      //   width: 619px;
+      max-width: 45vw;
+      line-height: lh(25px);
+    }
+
+    h1 {
+      margin-top: rem(58px);
+      font-family: ubuntu-med;
+      font-size: rem(45px);
+      font-weight: lighter;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: rem(20px);
+    }
+    .welcome-img {
+      max-height: 80vh;
+    }
+    .welcome-btn {
+      width: 230px;
+      height: 45.2px;
+    }
+  }
+
+  form {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 992px) {
+  .welcome-page {
+    .welcome-img {
+      display: none;
+    }
+
+    .welcome-body {
+      margin: auto;
+      margin-top: em(38.75px);
+      & > * {
+        max-width: 75vw;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1550px) {
+  .welcome-page {
+    .welcome-body {
+      margin: auto;
+      margin-top: em(38.75px);
+
+      .welcome-img {
+        max-width: 445px;
+      }
+    }
+  }
+}

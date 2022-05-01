@@ -1,0 +1,53 @@
+.activity-menu {
+  z-index: 10;
+  opacity: 0;
+  transform: translateX(100%);
+
+  transition-duration: 0.12s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-in;
+  .controls {
+    border-bottom: 1px solid #d6d9e0;
+    display: flex;
+    margin: 0 0 6px;
+    padding: 0 0 12px;
+    width: 100%;
+
+    .control-item {
+      display: block;
+      flex: 1;
+      color: #172b4d;
+      text-align: center;
+      text-decoration: underline;
+      border-radius: 3px;
+      margin-right: 6px;
+      padding: 8px;
+
+      &:hover {
+        background: #298fca;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      &:active {
+        background: #026aa7;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.is-active {
+        background: #026aa7;
+        color: #fff;
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+  }
+
+  .list {
+  }
+}

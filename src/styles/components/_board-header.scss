@@ -1,0 +1,272 @@
+.board-header {
+  min-height: rem(55px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: $clr3;
+  margin-left: 5px;
+  // padding: 8px 0 8px 0;
+  & > * {
+    margin: 5px;
+  }
+  .starred {
+    &.full-star {
+      svg {
+        color: $starred;
+      }
+      svg {
+      }
+      &:hover {
+        color: $starred;
+        // stroke: $starred;
+      }
+    }
+  }
+
+  // .starred:hover {
+  //   fill: $starred !important;
+  //   // stroke: $starred !important;
+  // }
+
+  .show-menu-btn {
+    .icon-base {
+      display: flex;
+
+      svg {
+        justify-content: center;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .board-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .members {
+      display: flex;
+      margin-left: 8px;
+      .member {
+        position: relative;
+        top: 3px;
+        cursor: pointer;
+        img {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0px 0px 0px 0.5px #ffffff7d;
+        }
+      }
+      & > *:last-child {
+        margin-left: 8px;
+      }
+    }
+
+    button {
+      border-radius: em(3px);
+      height: rem(32px);
+      @include btn(
+        $type: light,
+        $padding: (
+          0 em(12px),
+        ),
+        $line-height: (
+          lh(32px, 18px),
+        ),
+        $size: (
+          em(14px),
+        )
+      );
+      font-weight: 700;
+    }
+
+    .name-btn {
+      font-size: 14px;
+      font-weight: 400;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
+    }
+
+    .board-name-and-star {
+      display: flex;
+      align-items: center;
+      // margin-left: 4px;
+      padding: 0;
+      gap: 0.5rem;
+
+      .icon-base {
+        display: flex;
+
+        svg {
+          width: 18px;
+        }
+      }
+      div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        align-self: center;
+        border-radius: em(3px);
+        @include btn(
+          $type: light,
+          $padding: (
+            0 em(12px),
+          ),
+          $line-height: (
+            lh(32px, 18px),
+          ),
+          $size: (
+            rem(18px),
+          )
+        );
+        font-weight: 700;
+      }
+
+      input {
+        // max-width: calc(100% - em(24px));
+        // width: 70%;
+        font-size: rem(18px);
+        font-weight: 700;
+        height: rem(32px);
+        border: 0;
+        padding: 0 em(12px);
+        border-radius: em(3px);
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+          sans-serif;
+
+        &:focus-visible {
+          padding: 0;
+          color: $clr6;
+          outline: none;
+          box-shadow: 0 0 3px 2px $outline;
+        }
+      }
+    }
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-inline-end: rem(8px);
+
+    .filter-btn {
+      // gap: 0.25rem;
+      .icon-base {
+        display: flex;
+        svg {
+          padding-right: 4px;
+        }
+      }
+    }
+    button {
+      border-radius: em(3px);
+      height: rem(32px);
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
+
+      @include btn(
+        $type: light,
+        $padding: (
+          0 em(12px),
+        ),
+        $size: (
+          em(14px),
+        )
+      );
+      font-weight: 400;
+      justify-content: space-between;
+
+      span {
+        color: $clr3;
+      }
+      img {
+        margin-inline-end: rem(8px);
+      }
+    }
+  }
+  &.dark-bcg {
+    color: $taskD1;
+    // input{
+    //   color: $taskD1;
+    .board-name-and-star {
+      .board-name {
+        color: $taskD1;
+        &:hover {
+          color: $taskD1;
+        }
+      }
+    }
+    //   &::placeholder, &:focus {
+    //     color: $taskD1;
+    //   }
+    // }
+    button {
+      color: $taskD1;
+      span {
+        color: $taskD1;
+      }
+      &:hover {
+        color: $taskD1;
+      }
+    }
+  }
+}
+
+.invite-member-modal {
+  position: absolute;
+  z-index: 1;
+  width: 280px;
+  height: 415px;
+  @include modalBc;
+  header {
+    @include modalHeader;
+  }
+  .main-content {
+    @include modalContent;
+  }
+  ::-webkit-scrollbar-track {
+    margin: 0px;
+    background-color: rgba($color: #000000, $alpha: 0.08);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba($color: #000000, $alpha: 0.15);
+    border-radius: 20px;
+  }
+
+  .member-res-modal {
+    @include modalBc;
+    top: 90px;
+    left: 0px;
+    position: absolute;
+    width: 272px;
+    height: 188px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    img {
+      height: 32px;
+      width: 32px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .member-container {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .board-header {
+    .members > *:not(:last-child) {
+      display: none;
+    }
+  }
+}

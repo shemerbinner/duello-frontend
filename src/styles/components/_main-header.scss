@@ -1,0 +1,239 @@
+.main-header {
+  .logo-img {
+    background-image: url('https://res.cloudinary.com/dtseyauom/image/upload/v1648936865/logo-still_au8peg.png');
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  &:hover .logo-img {
+    background-image: url('https://res.cloudinary.com/dtseyauom/image/upload/v1648936865/logo-ani_lfmboa.gif');
+  }
+
+  nav {
+    height: rem(45px);
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .buttons {
+    display: flex;
+    cursor: pointer;
+    margin-left: 3px;
+    gap: 0.5rem;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+
+    button:not(:nth-of-type(2n)) {
+      gap: 0.25rem;
+
+      .grid {
+        svg {
+          width: 24px;
+        }
+      }
+    }
+
+    .icon-base {
+      display: flex;
+
+      svg {
+        width: 18px;
+      }
+    }
+  }
+
+  button {
+    cursor: pointer;
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    border-radius: 3px;
+  }
+
+  .create-btn {
+    background-color: rgba($color: $clr3, $alpha: 0.4);
+    &.add-btn-mq{
+      display: none;
+      padding:0 6px 0 3px;
+    }
+  }
+
+  button:hover {
+    background-color: rgba($color: $clr3, $alpha: 0.4);
+  }
+
+  span {
+    letter-spacing: 1px;
+    font-size: rem(18px);
+    font-weight: bold;
+    font-family: ubuntu-reg;
+  }
+
+  .information {
+    display: flex;
+    cursor: pointer;
+    margin-right: 1rem;
+    gap: 0.5rem;
+
+    .search {
+      display: flex;
+    }
+
+    .info {
+      display: flex;
+    }
+
+    .alert {
+      display: flex;
+    }
+
+    .bell-btn {
+      background-color: $clr4;
+
+      &:hover {
+        background-color: #cf513d;
+      }
+
+      svg {
+        width: 20px;
+        color: white;
+      }
+    }
+  }
+  .search-input {
+    padding-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    background-color: rgba($color: $clr3, $alpha: 0.4);
+    border-radius: 3px;
+
+    input {
+      background-color: transparent;
+      border: none;
+      width: rem(250px);
+      padding-left: 0.5rem;
+      outline: none;
+    }
+    img {
+      position: absolute;
+    }
+
+    input:focus {
+      border: none;
+      color: $clr6;
+    }
+  }
+  .user-icon {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  &.dark-bcg {
+    color: $taskD1;
+    input {
+      color: $taskD1;
+
+      &::placeholder,
+      &:focus {
+        color: $taskD1;
+      }
+    }
+    button:not(.bell-btn) {
+      color: $taskD1;
+    }
+    .logo-img {
+      background-image: url('https://res.cloudinary.com/dtseyauom/image/upload/v1648936865/logo-still-dark_wsmcra.png');
+    }
+    &:hover .logo-img {
+      background-image: url('https://res.cloudinary.com/dtseyauom/image/upload/v1648936865/logo-ani-dark_pr5ltt.gif');
+    }
+  }
+  &.light-bcg {
+    color: white;
+    button:not(.bell-btn) {
+      color: white;
+    }
+    input:not(.board-name) {
+      &::placeholder,
+      &:focus {
+        color: white;
+      }
+      color: white;
+    }
+  }
+}
+.main-user-modal{ 
+  position: absolute;
+  width: 304px;
+  z-index: 1;
+  right: 0;
+  @include modalBc;
+  header{
+    @include modalHeader;
+  }
+  .main-content{
+    @include modalContent;
+    img{
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .user-details{
+      display: flex;
+      align-items: center;
+      .user-name{
+        margin-left: 12px;
+        display: inline-block;
+        h5{
+          color: #b3bac5;
+          font-size: 12px;
+          font-weight: 400;
+        }
+        h4{
+          color: #172b4d;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 520px) {
+  .main-header {
+    .buttons > *:not(.main-logo, :nth-child(3n)) {
+      display: none;
+      
+    }
+    .create-btn.add-btn-mq{
+     display: block;
+  }
+  }
+}
+@media (max-width: 865px) {
+  .main-header {
+    .search-input {
+      width: 34px;
+      input {
+        display: none;
+      }
+    }
+    .information > *:not(:first-child, :last-child) {
+      display: none;
+    }
+  }
+}

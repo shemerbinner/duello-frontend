@@ -1,0 +1,304 @@
+.details-bc {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background-color: hsl(213deg 31% 13% / 70%);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.task-details {
+  position: relative;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  min-height: rem(800px);
+  background-color: #f4f5f7;
+
+  @media (max-width: $break-narrow) {
+    width: 100%;
+    margin: 36px 8px 36px 0px;
+  }
+  @media (min-width: $break-narrow) {
+    margin: 36px 8px;
+  }
+  @media (min-width: $break-wide) {
+    width: rem(770px);
+    margin: 42px auto 95px;
+  }
+
+  .icon-base {
+    display: inline-flex;
+  }
+  .add-btn {
+    height: rem(33px);
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #42526e;
+    cursor: pointer;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #091e4214;
+    }
+
+    .section {
+      display: inline-flex;
+    }
+  }
+
+  .member-list {
+    .add-btn,
+    img {
+      border-radius: 50%;
+    }
+    .member-container {
+      display: flex;
+      ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0px;
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          margin: 0 4px 4px 0;
+        }
+      }
+    }
+  }
+}
+.task-header-container {
+  position: relative;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  .details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-color: rgba($color: white, $alpha: 0.5);
+    border-radius: 50%;
+    margin: 5px;
+    &:hover {
+      cursor: pointer;
+      background-color: #091e4214;
+    }
+    .icon-base {
+      color: $menuTitleClr;
+      width: 22px;
+    }
+  }
+  .cover-container {
+    position: relative;
+    .cover-clr {
+      display: flex;
+      justify-content: center;
+      min-height: 116px;
+      width: 100%;
+    }
+    .cover-img {
+      max-height: 160px;
+      margin: auto;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    width: 100%;
+    // height: rem(215px);
+    // display: flex;
+    // flex-direction: column-reverse;
+    // height: rem(130px);
+    // width: 500px;
+    // background-color: $labe3;
+    // justify-content: flex-end;
+    // padding: 5px;
+    border-radius: 3px;
+    // background-size: auto 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    // height: 0;
+    // margin-top: 10px;
+
+    button {
+      height: 20px;
+      position: absolute;
+    }
+  }
+  .task-details-container {
+    padding: 4px 8px;
+    position: relative;
+    margin: 20px 0 8px 56px;
+
+    textarea {
+      width: rem(670px);
+      padding: 2px 8px;
+      background-color: transparent;
+      color: #172b4d;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
+    }
+
+    .info-in-group {
+      color: $boardAddClr;
+      p {
+        font-size: rem(14px);
+
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+          sans-serif;
+      }
+      span {
+        text-decoration: underline;
+
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+          sans-serif;
+      }
+    }
+  }
+
+  .card-header {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    left: -40px;
+    top: 4px;
+
+    svg {
+      color: #42526e;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    border-radius: 3px;
+    resize: none;
+    font-size: 20px;
+    font-weight: 600;
+    height: 32px;
+    margin: -4px -8px;
+    outline: none;
+    border: none;
+    overflow: hidden;
+    overflow-wrap: break-word;
+
+    &:focus {
+      background-color: white;
+      box-shadow: inset 0 0 0 2px #0079bf;
+      outline: 0;
+    }
+  }
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+  @media (max-width: $break-narrow) {
+    flex-direction: column;
+  }
+  @media (min-width: $break-narrow) {
+    flex-direction: column;
+  }
+  @media (min-width: $break-wide) {
+    flex-direction: row;
+  }
+  .content-displayed {
+    position: relative;
+    width: 576px;
+    margin: 0;
+    padding: 0 8px 8px 16px;
+    z-index: 0;
+
+    @media (max-width: $break-narrow) {
+      width: 100%;
+    }
+    @media (min-width: $break-narrow) {
+      width: 99%;
+    }
+    @media (min-width: $break-wide) {
+      width: 576px;
+    }
+
+    h2 {
+      font-size: 12px;
+      color: #5e6c84;
+      line-height: 20px;
+      font-weight: 600;
+      margin: 0 8px 4px 0;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue,
+        sans-serif;
+    }
+    .container {
+      margin-bottom: 24px;
+      margin-left: 40px;
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .dueDate {
+        cursor: pointer;
+
+        span {
+          height: rem(33px);
+          display: flex;
+          align-items: center;
+          background-color: #ebecef;
+          padding: 1rem;
+          border-radius: 3px;
+          color: #182a4d;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans,
+            Helvetica Neue, sans-serif;
+
+          &:hover {
+            background-color: #091e4214;
+          }
+        }
+      }
+
+      .labels-for-display {
+        .labels-container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .label {
+          display: inline-block;
+          min-width: rem(40px);
+          height: rem(33px);
+          margin: 0 4px 4px 0;
+          padding: 0 12px;
+          border-radius: 3px;
+          color: white;
+          line-height: rem(33px);
+          font-size: 14px;
+          font-weight: 600;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans,
+            Helvetica Neue, sans-serif;
+
+          & > * {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dynamic-cmp {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: auto;
+}

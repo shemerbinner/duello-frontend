@@ -1,0 +1,31 @@
+.copy-cmp{
+    @include modalBc;
+    width: 280px;
+    header{
+        @include modalHeader;
+    }
+    .main-content{
+        @include modalContent;
+        button{
+            line-height: normal;
+            height: 50px;
+            text-align: start;
+            padding: 0px 0px 10px 5px;
+            select{
+                display: block;
+                background-color: transparent;
+                border: none;
+                color: #172B4D;
+                font-size: 14px;
+                font-weight: 200;
+                &:focus{
+                   outline: none; 
+                }
+            }
+            span{
+                color: #5E6C84;
+                font-size: 12px;
+            }
+        }
+    }
+}

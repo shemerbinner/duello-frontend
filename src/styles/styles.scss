@@ -1,0 +1,51 @@
+// SETUP
+@import './setup/functions';
+@import 'setup/typography';
+@import 'setup/variables';
+@import 'setup/_mixins';
+// @import 'setup/functions';
+
+// BASICS
+@import 'basic/base';
+// @import 'basics/base';
+// @import 'basics/layout';
+
+// VIEWS
+@import 'views/welcome-page';
+@import 'views/home-page';
+@import 'views/main-board';
+
+// COMPONENTS
+@import 'components/main-header';
+@import 'components/board-header';
+@import 'components/board-group';
+@import 'components/task-preview';
+@import 'components/create-board';
+@import 'components/task-details';
+@import 'components/activity-details';
+@import 'components/comment-cmp';
+@import 'components/task-details-menu';
+@import 'components/board-menu';
+@import 'components/description-details';
+@import 'components/add-group';
+@import 'components/all-boards';
+@import 'components/attachment-details';
+@import 'components/checklist-details';
+@import 'components/delete-modal';
+@import 'components/side-menu/activity-menu';
+@import 'components/login-app';
+@import 'components/side-menu/bcg-menu';
+@import 'components/task-quick-edit';
+@import 'components/loader';
+
+// DYNAMIC-COMPONENTS
+@import 'components/dynamic-components/label-cmp';
+@import 'components/dynamic-components/member-cmp';
+@import 'components/dynamic-components/checklist-cmp';
+@import 'components/dynamic-components/calendar-cmp';
+@import 'components/dynamic-components/attachment-cmp';
+@import 'components/dynamic-components/cover-cmp';
+@import 'components/dynamic-components/giphy-cmp';
+@import 'components/dynamic-components/activity-cmp';
+@import 'components/dynamic-components/delete-todo-modal';
+@import 'components/dynamic-components/copy-cmp';

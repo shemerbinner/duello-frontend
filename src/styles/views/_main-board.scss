@@ -1,0 +1,34 @@
+.main-board {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+
+  .groups-container-wrapper {
+    height: 100%;
+    margin-left: 5px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+    white-space: nowrap;
+
+    .smooth-dnd-container {
+      height: fit-content;
+      .smooth-dnd-draggable-wrapper {
+        padding: 0 4px;
+      }
+    }
+  }
+
+  .group-wrapper {
+    box-sizing: border-box;
+    margin: 0 4px;
+    vertical-align: top;
+    white-space: nowrap;
+    width: 272px;
+  }
+}

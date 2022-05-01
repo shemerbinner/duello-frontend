@@ -1,0 +1,70 @@
+.delete-todo-modal {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px #091e4240, 0 0 0 1px #091e4214;
+  position: absolute;
+  width: 304px;
+  z-index: 70;
+
+  .delete-header {
+    height: 40px;
+    border-bottom: 1px solid #091e4221;
+    color: #5e6c84;
+    line-height: 40px;
+    margin: 0 12px 8px;
+    padding: 0 32px;
+    position: relative;
+    text-align: center;
+
+    .icon-base {
+      border: none;
+      background-color: inherit;
+      padding: 10px 12px 10px 8px;
+      position: absolute;
+      right: -15px;
+      top: -1px;
+      z-index: 2;
+
+      svg:hover {
+        cursor: pointer;
+        color: #172b4d;
+      }
+    }
+  }
+
+  div:last-of-type {
+    button {
+      width: 100%;
+      background-color: inherit;
+      border: none;
+      color: #172b4d;
+      border-radius: 3px;
+
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      padding: 6px 12px;
+      margin: 0px 4px 0 0;
+      text-align: left;
+
+      transition-duration: 85ms;
+      transition-property: background-color, border-color, box-shadow;
+      transition-timing-function: ease;
+      white-space: normal;
+
+      &:hover {
+        background-color: #091e4214;
+      }
+
+      &:active {
+        background-color: #e4f0f6;
+        color: #0079bf;
+      }
+
+      &:last-child {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
