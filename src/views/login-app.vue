@@ -1,9 +1,7 @@
 <template>
   <section class="login-cmp">
     <div class="logo-container">
-      <div class="logo-img">
-        <!-- <img src="../../src/assets/icons/trello-blue.svg" /> -->
-      </div>
+      <img class="logo-img" src="../../src/assets/icons/trello-blue.svg" />
       <h1>Duello</h1>
     </div>
     <div class="login-container">
