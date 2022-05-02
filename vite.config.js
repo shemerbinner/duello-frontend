@@ -13,7 +13,7 @@ export default defineConfig({
     publicPath: process.env.NODE_ENV === "production" ? "/duello/" : "/",
   },
   build: {
-    outDir: '../backend/public',
+    outDir: '../duello-backend/public',
     emptyOutDir: true
   }
 })
