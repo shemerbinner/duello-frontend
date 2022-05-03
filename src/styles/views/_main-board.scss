@@ -7,28 +7,54 @@
   background-size: cover;
   overflow-x: hidden;
 
-  .groups-container-wrapper {
-    height: 100%;
-    margin-left: 5px;
+  .groups-container {
+    flex-grow: 1;
     display: flex;
+    overflow: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    margin-left: 5px;
+    position: relative;
+  }
+
+  .groups-container-wrapper {
+    display: flex;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 8px;
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
     white-space: nowrap;
 
-    .smooth-dnd-container {
-      height: fit-content;
-      .smooth-dnd-draggable-wrapper {
-        padding: 0 4px;
+    .smooth-dnd-container.horizontal {
+      .smooth-dnd-container.horizontal {
+        .smooth-dnd-draggable-wrapper {
+          height: fit-content;
+        }
       }
     }
   }
 
   .group-wrapper {
     box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
     margin: 0 4px;
     vertical-align: top;
     white-space: nowrap;
     width: 272px;
+
+    // &.sortable-drag {
+    //   opacity: 1 !important;
+    //   transform: rotate(3deg);
+
+    //   * {
+    //     opacity: 1 !important;
+    //   }
+    // }
   }
 }

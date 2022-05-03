@@ -1,37 +1,38 @@
 <template>
-  <section class="main-board" :style="bcg" v-if="board">
+  <section class="main-board" :style="bcg">
     <main-header />
     <board-header />
 
-    <section class="groups-container-wrapper">
-      <Container
-        @drop="onDrop"
-        :get-child-payload="getChildPayload"
-        orientation="horizontal"
-        drag-class="card-ghost"
-        drop-class="card-ghost-drop"
-        :drop-placeholder="{ className: 'drop-preview' }"
-      >
-        <Draggable v-for="group in board.groups" :key="group.id" class="group-wrapper">
-          <board-group
-            :group="JSON.parse(JSON.stringify(group))"
-            :board="board"
-            :draggingCard="draggingCard"
-            @onDragTask="onDragTask"
-            @setDraggedTask="setDraggedTask"
-            @editGroup="editGroup"
-            @removeGroup="removeGroup"
-            @removeTask="removeTask"
-            @updateTask="updateTask"
-            @addTask="addTask"
-            @onOpen="openModal"
-            @quickEdit="(task, position, width) => quickEdit(task, position, width, group)"
-          />
-        </Draggable>
-      </Container>
-      <add-group @addGroup="addGroup" class="group-wrapper" />
+    <section class="groups-container" v-if="board">
+      <div class="groups-container-wrapper">
+        <Container
+          orientation="horizontal"
+          @drop="onDrop"
+          :get-child-payload="getChildPayload"
+          drag-class="card-ghost"
+          drop-class="card-ghost-drop"
+          :drop-placeholder="{ className: 'drop-preview' }"
+        >
+          <Draggable v-for="group in board.groups" :key="group.id" class="group-wrapper">
+            <board-group
+              :group="JSON.parse(JSON.stringify(group))"
+              :board="board"
+              :draggingCard="draggingCard"
+              @onDragTask="onDragTask"
+              @setDraggedTask="setDraggedTask"
+              @editGroup="editGroup"
+              @removeGroup="removeGroup"
+              @removeTask="removeTask"
+              @updateTask="updateTask"
+              @addTask="addTask"
+              @onOpen="openModal"
+              @quickEdit="(task, position, width) => quickEdit(task, position, width, group)"
+            />
+          </Draggable>
+          <add-group @addGroup="addGroup" class="group-wrapper" />
+        </Container>
+      </div>
     </section>
-
     <task-details
       v-if="isOpenModal"
       :taskId="taskId"
@@ -106,7 +107,7 @@ export default {
       await this.$store.dispatch({ type: 'drag', board: JSON.parse(JSON.stringify(this.board)) });
       this.board = JSON.parse(JSON.stringify(this.$store.getters.board));
       this.draggingCard = null;
-      console.log(this.draggingCard);
+      // console.log(this.draggingCard);
     },
     setDraggedTask(task) {
       this.draggingCard = task;

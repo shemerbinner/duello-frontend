@@ -18,14 +18,11 @@
     <div class="task-container">
       <ul>
         <Container
-          v-if="(group.tasks && group.tasks.length) || draggingCard"
           group-name="list"
           orientation="vertical"
           @drop="onDrop"
           @drag-start="handleDragStart($event, group.id)"
           :get-child-payload="getChildPayload"
-          drag-class="card-ghost"
-          drop-class="card-ghost-drop"
           :drop-placeholder="{ className: 'drop-preview' }"
         >
           <Draggable v-for="task in group.tasks" :key="task.id" @click="openModalDetails(task.id)">
@@ -93,15 +90,18 @@
         </button>
       </div>
     </div>
-
     <div @blur="openEditModal" v-if="isEditModal" class="group-edit-modal">
       <div class="modal-header">
-        <span>List actions</span>
-        <icon-base iconName="xs" @click="openEditModal" />
+        <h1>List actions</h1>
+        <label @click="openEditModal">
+          <icon-base iconName="x"></icon-base>
+        </label>
       </div>
-
+      <hr />
       <div class="modal-content">
-        <p @click="createTask(group.id)">Add card</p>
+        <div>
+          <p @click="createTask(group.id)">Add card</p>
+        </div>
         <p @click="removeGroup(group.id)">Delete this list</p>
       </div>
     </div>
