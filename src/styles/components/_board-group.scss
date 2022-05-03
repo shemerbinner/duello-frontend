@@ -255,9 +255,21 @@
     display: flex;
     height: rem(40px);
     line-height: rem(40px);
+
     button {
       margin-right: 8px;
       align-self: center;
+      background-color: inherit;
+      height: 28px;
+      border: none;
+      border-radius: 3px;
+      display: flex;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $group2;
+      }
+
       .icon-base svg {
         color: $groupMoreClr;
         width: 22px;
@@ -287,16 +299,6 @@
         background-color: $clr3;
         border-color: $clr6;
       }
-    }
-    button {
-      height: 28px;
-      border: none;
-      border-radius: 3px;
-    }
-
-    button:hover {
-      cursor: pointer;
-      background-color: $group2;
     }
   }
 
