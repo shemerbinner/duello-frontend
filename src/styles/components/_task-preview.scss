@@ -55,6 +55,8 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   textarea {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -125,7 +125,7 @@ export const boardStore = {
       state.labelsExpanded = !state.labelsExpanded;
     },
     setBoard(state, { board }) {
-      console.log(board);
+      // console.log(board);
       state.board = board;
       state.boardGroups = board.groups;
       if (board.style.type === 'img') state.bcg = board.style.color;
@@ -299,15 +299,17 @@ export const boardStore = {
       try {
         if (!state.counter) {
           var oldBoard = state.board
-          commit({ type: 'setBoard', board });
           commit({ type: 'setCounter', count: 1 });
         }
 
         commit({ type: 'setBoard', board });
 
-        await boardService.updateBoard(board);
+        setTimeout(async () => {
+          await boardService.updateBoard(board);
+        }, 10)
 
         if (state.counter === 1) {
+          commit({ type: 'setBoard', board });
           commit({ type: 'setCounter', count: 0 });
         }
 

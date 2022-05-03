@@ -12,49 +12,52 @@
         <span :class="labelsExpanded ? 'show' : 'hide'">{{ label.title }}&nbsp;</span>
       </div>
     </div>
-    <resizable-textarea
-      class="isEditing"
-      :value="taskToEditPartial.title"
-      @valueChange="saveEdit"
-      v-if="canEditTitle"
-      :autofocus="true"
-    />
-    <resizable-textarea v-else :value="taskTitle" :disabled="true" />
-    <div v-if="!isCoverBcg" class="task-extras">
-      <div class="left">
-        <span v-if="task.dueDate" :class="['due-date', isDuePassed, isDueCompleted]">
-          <icon-base class="due-icon-clock" iconName="clock" />
-          <icon-base class="due-icon-checked" @click.stop="isDueComplete = !isDueComplete" iconName="checked" />
-          <icon-base class="due-icon-unchecked" @click.stop="isDueComplete = !isDueComplete" iconName="unchecked" />
-          {{ formatDate(this.task.dueDate) }}
-        </span>
-        <span v-if="numberOfAttachments > 0" class="number-of-attachments">
-          <icon-base iconName="attachment" />
-          {{ numberOfAttachments }}
-        </span>
-        <span v-if="task.description" class="description-display">
-          <icon-base iconName="description" />
-        </span>
-        <span v-if="numberOfComments > 0" class="comment-display">
-          <icon-base iconName="comment" />
-          {{ numberOfComments }}
-        </span>
-        <div
-          :class="{ 'checklist-display': true, done: isChecklistDone }"
-          v-if="
-            this.task.checklist &&
-            this.task.checklist.length &&
-            this.task.checklist[0].todos &&
-            this.task.checklist[0].todos.length
-          "
-        >
-          <icon-base iconName="checklist" />
-          <span>{{ checklistStatus }}</span>
+    <div>
+      <resizable-textarea
+        class="isEditing"
+        :value="taskToEditPartial.title"
+        @valueChange="saveEdit"
+        v-if="canEditTitle"
+        :autofocus="true"
+      />
+      <resizable-textarea v-else :value="taskTitle" :disabled="true" />
+
+      <div v-if="!isCoverBcg" class="task-extras">
+        <div class="left">
+          <span v-if="task.dueDate" :class="['due-date', isDuePassed, isDueCompleted]">
+            <icon-base class="due-icon-clock" iconName="clock" />
+            <icon-base class="due-icon-checked" @click.stop="isDueComplete = !isDueComplete" iconName="checked" />
+            <icon-base class="due-icon-unchecked" @click.stop="isDueComplete = !isDueComplete" iconName="unchecked" />
+            {{ formatDate(this.task.dueDate) }}
+          </span>
+          <span v-if="numberOfAttachments > 0" class="number-of-attachments">
+            <icon-base iconName="attachment" />
+            {{ numberOfAttachments }}
+          </span>
+          <span v-if="task.description" class="description-display">
+            <icon-base iconName="description" />
+          </span>
+          <span v-if="numberOfComments > 0" class="comment-display">
+            <icon-base iconName="comment" />
+            {{ numberOfComments }}
+          </span>
+          <div
+            :class="{ 'checklist-display': true, done: isChecklistDone }"
+            v-if="
+              this.task.checklist &&
+              this.task.checklist.length &&
+              this.task.checklist[0].todos &&
+              this.task.checklist[0].todos.length
+            "
+          >
+            <icon-base iconName="checklist" />
+            <span>{{ checklistStatus }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div v-if="!isCoverBcg" class="member-list">
-      <img v-for="member in task.members" :key="member._id" :src="member.imgUrl" />
+      <div v-if="!isCoverBcg" class="member-list">
+        <img v-for="member in task.members" :key="member._id" :src="member.imgUrl" />
+      </div>
     </div>
   </section>
 </template>
