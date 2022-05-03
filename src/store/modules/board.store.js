@@ -17,6 +17,7 @@ export const boardStore = {
     bcg: '#026AA7',
     isDark: true,
     BoardStyle: null,
+    counter: 0
   },
   getters: {
     board(state) {
@@ -124,6 +125,7 @@ export const boardStore = {
       state.labelsExpanded = !state.labelsExpanded;
     },
     setBoard(state, { board }) {
+      console.log(board);
       state.board = board;
       state.boardGroups = board.groups;
       if (board.style.type === 'img') state.bcg = board.style.color;
@@ -166,6 +168,9 @@ export const boardStore = {
       state.bcg = '#026AA7';
       state.isDark = true;
     },
+    setCounter(state, { count }) {
+      state.counter = count
+    }
   },
   actions: {
     async updateBoardLabel({ commit, state }, { label }) {
@@ -292,14 +297,22 @@ export const boardStore = {
     },
     async drag({ commit, state }, { board }) {
       try {
+        if (!state.counter) {
+          var oldBoard = state.board
+          commit({ type: 'setBoard', board });
+          commit({ type: 'setCounter', count: 1 });
+        }
+
         commit({ type: 'setBoard', board });
 
-        setTimeout(async () => {
-          await boardService.updateBoard(board);
-        }, 1)
+        await boardService.updateBoard(board);
+
+        if (state.counter === 1) {
+          commit({ type: 'setCounter', count: 0 });
+        }
+
 
       } catch (err) {
-        const oldBoard = await boardService.updateBoard(JSON.parse(JSON.stringify(state.board)));
         commit({ type: 'setBoard', board: oldBoard });
 
         console.log(err);
